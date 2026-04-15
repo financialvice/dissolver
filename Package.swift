@@ -2,9 +2,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "Dissolve",
+    name: "Dissolver",
     platforms: [.macOS(.v14)],
     targets: [
-        .executableTarget(name: "Dissolve")
+        .executableTarget(name: "Dissolver")
     ]
 )

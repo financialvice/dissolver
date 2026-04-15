@@ -154,7 +154,7 @@ private struct CapturedWindow {
 private func captureWindows() async throws -> (displaySize: CGSize, windows: [CapturedWindow]) {
     let content = try await SCShareableContent.excludingDesktopWindows(true, onScreenWindowsOnly: true)
     guard let display = content.displays.first else {
-        throw NSError(domain: "Dissolve", code: 1, userInfo: [NSLocalizedDescriptionKey: "No display found"])
+        throw NSError(domain: "Dissolver", code: 1, userInfo: [NSLocalizedDescriptionKey: "No display found"])
     }
     let displaySize = display.frame.size
     let myPid = ProcessInfo.processInfo.processIdentifier
@@ -374,7 +374,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
                 try? await Task.sleep(nanoseconds: 33_000_000)
                 hideAllOtherApps()
             } catch {
-                FileHandle.standardError.write(Data("dissolve failed: \(error)\n".utf8))
+                FileHandle.standardError.write(Data("dissolver failed: \(error)\n".utf8))
                 NSApp.terminate(nil)
             }
         }
@@ -395,7 +395,7 @@ if !args.contains(runFlag) {
     child.standardOutput = FileHandle.nullDevice
     child.standardError = FileHandle.nullDevice
     do { try child.run() } catch {
-        FileHandle.standardError.write(Data("dissolve: failed to spawn: \(error)\n".utf8))
+        FileHandle.standardError.write(Data("dissolver: failed to spawn: \(error)\n".utf8))
         exit(1)
     }
     exit(0)
