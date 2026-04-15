@@ -1,6 +1,10 @@
 # dissolve
 
+![cover](cover.webp)
+
 dissolves all visible macos windows into floating embers via a metal shader
+
+<video src="https://github.com/financialvice/dissolve/raw/main/demo.mp4" controls></video>
 
 - build: `swift build -c release && cp .build/release/Dissolve /usr/local/bin/dissolve`
 - run: `dissolve`
