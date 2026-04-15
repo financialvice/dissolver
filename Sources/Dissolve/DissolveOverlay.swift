@@ -41,6 +41,9 @@ final class DissolveOverlay {
                            backing: .buffered,
                            defer: false,
                            screen: screen)
+        // AppKit may animate a newly shown borderless window; that makes the
+        // replacement screenshot appear to scale in before the real window hides.
+        win.animationBehavior = .none
         win.isOpaque = false
         win.backgroundColor = .clear
         win.hasShadow = false
