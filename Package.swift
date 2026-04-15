@@ -5,9 +5,6 @@ let package = Package(
     name: "Dissolve",
     platforms: [.macOS(.v14)],
     targets: [
-        .executableTarget(
-            name: "Dissolve",
-            resources: [.process("Shaders.metal")]
-        )
+        .executableTarget(name: "Dissolve")
     ]
 )
